@@ -7,8 +7,8 @@ services:
       POSTGRES_PASSWORD: school
       POSTGRES_DB: school_mgmt
     volumes:
-      - ./seed_db:/docker-entrypoint-initdb.d
       - postgres_data:/var/lib/postgresql/data
+      - ./seed_db:/docker-entrypoint-initdb.d
     ports:
       - '5432:5432'
 
@@ -19,7 +19,7 @@ services:
     environment:
       DATABASE_URL: postgres://school:school@postgres:5432/school_mgmt
       PORT: 5007
-      JWT_SECRET: your_jwt_secret  # Set your secrets appropriately
+      JWT_SECRET: your_jwt_secret  
     ports:
       - '5000:5007'
 
